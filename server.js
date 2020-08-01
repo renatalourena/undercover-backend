@@ -12,6 +12,9 @@ const client  = redis.createClient();
 const router = express.Router();
 const app = express();
 const mysql = require('mysql');
+const cors = require('cors')
+
+app.use(cors())
 
 app.use(session({
     secret: 'ssshhhhh',
@@ -62,6 +65,11 @@ router.get('/logout',(req,res) => {
 
 router.get('/players', (req, res) =>{
     execSQLQuery('SELECT * FROM players', res);
+})
+
+router.post('/players', (req, res) =>{
+  console.log("post players: ", JSON.stringify(req.body))
+  // execSQLQuery('SELECT * FROM players', res);
 })
 
 app.use('/', router);
