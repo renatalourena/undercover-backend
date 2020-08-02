@@ -64,7 +64,7 @@ router.get('/logout',(req,res) => {
 
 
 router.get('/players', (req, res) =>{
-    execSQLQuery('SELECT * FROM players', res);
+    execSQLQuery('SELECT * FROM users', res);
 })
 
 router.post('/players', (req, res) =>{
